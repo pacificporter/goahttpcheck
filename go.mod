@@ -1,4 +1,4 @@
-module github.com/ikawaha/goahttpcheck
+module github.com/pacificporter/goahttpcheck
 
 go 1.16
 
