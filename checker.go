@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"testing"
+	"time"
 
 	"github.com/ikawaha/httpcheck"
 	goahttp "goa.design/goa/v3/http"
@@ -32,10 +33,39 @@ type APIChecker struct {
 	Encoder      encoder
 	ErrorHandler errorHandler
 	Formatter    formatter
+	ClientOptions []httpcheck.Option
 }
 
 // Option represents options for API checker.
 type Option func(c *APIChecker)
+
+// ClientTimeout sets the client timeout.
+func ClientTimeout(d time.Duration) Option {
+	return func(c *APIChecker) {
+		c.ClientOptions = append(c.ClientOptions, httpcheck.ClientTimeout(d))
+	}
+}
+
+// CheckRedirect sets the policy of redirection to the HTTP client.
+func CheckRedirect(policy func(req *http.Request, via []*http.Request) error) Option {
+	return func(c *APIChecker) {
+		c.ClientOptions = append(c.ClientOptions, httpcheck.CheckRedirect(policy))
+	}
+}
+
+// NoRedirect is the alias of the following:
+//
+//  CheckRedirect(func(req *http.Request, via []*http.Request) error {
+//      return http.ErrUseLastResponse
+//  })
+//
+// Client returns ErrUseLastResponse, the next request is not sent and the most recent
+// response is returned with its body unclosed.
+func NoRedirect() Option {
+	return CheckRedirect(func(req *http.Request, via []*http.Request) error {
+		return http.ErrUseLastResponse
+	})
+}
 
 // Muxer sets the goa http multiplexer.
 func Muxer(mux goahttp.Muxer) Option {
@@ -110,5 +140,5 @@ func (c APIChecker) Test(t *testing.T, method, path string) *httpcheck.Tester {
 	for _, v := range c.Middleware {
 		handler = v(handler)
 	}
-	return httpcheck.New(handler).Test(t, method, path)
+	return httpcheck.New(handler, c.ClientOptions...).Test(t, method, path)
 }
