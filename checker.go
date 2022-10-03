@@ -16,7 +16,7 @@ type (
 	decoder      = func(*http.Request) goahttp.Decoder
 	encoder      = func(context.Context, http.ResponseWriter) goahttp.Encoder
 	errorHandler = func(context.Context, http.ResponseWriter, error)
-	formatter    = func(error) goahttp.Statuser
+	formatter    = func(context.Context, error) goahttp.Statuser
 	middleware   = func(http.Handler) http.Handler
 
 	// HandlerBuilder represents the goa http handler builder.
@@ -27,12 +27,12 @@ type (
 
 // APIChecker represents the API checker.
 type APIChecker struct {
-	Mux          goahttp.Muxer
-	Middleware   []middleware
-	Decoder      decoder
-	Encoder      encoder
-	ErrorHandler errorHandler
-	Formatter    formatter
+	Mux           goahttp.Muxer
+	Middleware    []middleware
+	Decoder       decoder
+	Encoder       encoder
+	ErrorHandler  errorHandler
+	Formatter     formatter
 	ClientOptions []httpcheck.Option
 }
 
