@@ -114,8 +114,8 @@ github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5t
 github.com/zach-klippenstein/goregen v0.0.0-20160303162051-795b5e3961ea h1:CyhwejzVGvZ3Q2PSbQ4NRRYn+ZWv5eS1vlaEusT+bAI=
 github.com/zach-klippenstein/goregen v0.0.0-20160303162051-795b5e3961ea/go.mod h1:eNr558nEUjP8acGw8FFjTeWvSgU1stO7FAO6eknhHe4=
 go.opentelemetry.io/proto/otlp v0.7.0/go.mod h1:PqfVotwruBrMGOCsRd/89rSnXhoiJIqeYNgFYFoEGnI=
-goa.design/goa/v3 v3.9.0 h1:KFAGJiY7+WPFcHmIgifFgHLm7y0l8auRn/YPL4N5RJw=
-goa.design/goa/v3 v3.9.0/go.mod h1:lgFS8pt76ubyi/K72CxwpAMmxfnS+T08gG8hPTaasNA=
+goa.design/goa/v3 v3.9.1 h1:ynzi8fxv5EShdx0rrQ6a7csHs4R+DrFUiBd8HOsWRbM=
+goa.design/goa/v3 v3.9.1/go.mod h1:8rF4yUIx4Pxc9gm+8/m2hkZKnc80wS328CrGWA5ex+I=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
 golang.org/x/crypto v0.0.0-20210921155107-089bfa567519/go.mod h1:GvvjBRRGRdwPK5ydBHafDWAxML/pGHZbMvKqRZ5+Abc=
