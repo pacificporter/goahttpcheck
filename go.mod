@@ -4,12 +4,12 @@ go 1.17
 
 require (
 	github.com/ikawaha/httpcheck v1.7.0
-	goa.design/goa/v3 v3.9.1
+	goa.design/goa/v3 v3.11.0
 )
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/dimfeld/httptreemux/v5 v5.4.0 // indirect
+	github.com/dimfeld/httptreemux/v5 v5.5.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
